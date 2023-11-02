@@ -19,6 +19,10 @@
 
   --clr-divider-light: rgba(60, 60, 60, 0.12);
   --clr-divider-dark: rgba(84, 84, 84, 0.48);
+
+  --ff-base: 'Poppins', sans-serif;
+
+  --br-base: 10px;
 }
 
 /* Colors theme */
