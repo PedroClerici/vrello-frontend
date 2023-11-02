@@ -1,0 +1,49 @@
+:root {
+  --clr-white: #ffffff;
+  --clr-white-soft: #f9f9f9;
+  --clr-white-mute: #f1f1f1;
+
+  --clr-black: #1a1a1a;
+  --clr-black-soft: #242424;
+  --clr-black-mute: #2f2f2f;
+
+  --clr-text-light: #213547;
+  --clr-text-light-400: rgba(60, 60, 60, 0.7);
+  --clr-text-light-300: rgba(60, 60, 60, 0.38);
+  --clr-text-light-200: rgba(60, 60, 60, 0.18);
+
+  --clr-text-dark: rgba(255, 255, 255, 0.87);
+  --clr-text-dark-400: rgba(235, 235, 235, 0.6);
+  --clr-text-dark-300: rgba(235, 235, 235, 0.38);
+  --clr-text-dark-200: rgba(235, 235, 235, 0.18);
+
+  --clr-divider-light: rgba(60, 60, 60, 0.12);
+  --clr-divider-dark: rgba(84, 84, 84, 0.48);
+}
+
+/* Colors theme */
+:root {
+  --clr-bg: var(--clr-white);
+  --clr-bg-soft: var(--clr-white-soft);
+  --clr-bg-mute: var(--clr-white-mute);
+
+  --clr-text: var(--clr-text-light);
+  --clr-text-400: var(--clr-text-light-400);
+  --clr-text-300: var(--clr-text-light-300);
+  --clr-text-200: var(--clr-text-light-200);
+
+  --clr-divider: var(--clr-divider-light);
+}
+
+.dark {
+  --clr-bg: var(--clr-black);
+  --clr-bg-soft: var(--clr-black-soft);
+  --clr-bg-mute: var(--clr-black-mute);
+
+  --clr-text: var(--clr-text-dark);
+  --clr-text-400: var(--clr-text-dark-400);
+  --clr-text-300: var(--clr-text-dark-300);
+  --clr-text-200: var(--clr-text-dark-200);
+
+  --clr-divider: var(--clr-divider-dark);
+}
