@@ -1,7 +1,17 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import CardItem from './components/CardItem.vue'
 </script>
 
 <template>
-  <HelloWorld />
+  <CardItem />
 </template>
+
+<style>
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-bg);
+}
+</style>

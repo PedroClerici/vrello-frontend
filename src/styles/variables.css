@@ -20,6 +20,9 @@
   --clr-divider-light: rgba(60, 60, 60, 0.12);
   --clr-divider-dark: rgba(84, 84, 84, 0.48);
 
+  --clr-highlight-light: #213547;
+  --clr-highlight-dark: #42b883;
+
   --ff-base: 'Poppins', sans-serif;
 
   --br-base: 10px;
@@ -37,6 +40,8 @@
   --clr-text-200: var(--clr-text-light-200);
 
   --clr-divider: var(--clr-divider-light);
+
+  --clr-highlight: var(--clr-highlight-light);
 }
 
 .dark {
@@ -50,4 +55,6 @@
   --clr-text-200: var(--clr-text-dark-200);
 
   --clr-divider: var(--clr-divider-dark);
+
+  --clr-highlight: var(--clr-highlight-dark);
 }
