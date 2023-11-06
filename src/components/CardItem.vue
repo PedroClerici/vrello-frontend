@@ -7,11 +7,11 @@ import AttachmentIcon from './icons/IconAttachment.vue'
 <template>
   <div class="card" draggable="true">
     <div class="card-img"></div>
-    <!-- <ul class="tags">
-      <li>Priority</li>
-      <li>Design Team</li>
-      <li>One more step</li>
-    </ul> -->
+    <ul class="card-tags card-tags--compressed">
+      <li><span>Priority</span></li>
+      <li><span>Design Team</span></li>
+      <li><span>One more step</span></li>
+    </ul>
     <div class="card-text">
       <h3>Types of paper in catalog printing</h3>
       <p>
@@ -61,6 +61,34 @@ import AttachmentIcon from './icons/IconAttachment.vue'
   width: 90%;
 }
 
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card-tags li {
+  display: flex; /* For some reason fix weird height properties? */
+  background: #891be8;
+  border-radius: 4px;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+.card-tags span {
+  font-size: var(--fs-small);
+  font-weight: 400;
+  color: var(--clr-text-400);
+}
+
+.card-tags--compressed li {
+  width: 60px;
+  height: 8px;
+  border-radius: var(--br-base);
+}
+.card-tags--compressed span {
+  display: none;
+}
 .card-footer {
   display: flex;
 }
@@ -91,6 +119,7 @@ import AttachmentIcon from './icons/IconAttachment.vue'
   display: flex;
   gap: 4px;
   align-items: center;
+  font-size: var(--fs-small);
   color: var(--clr-text-200);
 }
 </style>

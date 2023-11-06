@@ -23,6 +23,10 @@
   --clr-highlight-light: #213547;
   --clr-highlight-dark: #42b883;
 
+  --fs-large: 1.625rem;
+  --fs-base: 1rem;
+  --fs-small: 0.8125rem;
+
   --ff-base: 'Poppins', sans-serif;
 
   --br-base: 10px;
