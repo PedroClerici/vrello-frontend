@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import CardItem from './components/CardItem.vue'
+// import CardItem from './components/CardItem.vue'
+import CardList from './components/CardList.vue'
 </script>
 
 <template>
-  <CardItem />
+  <CardList />
 </template>
 
 <style>

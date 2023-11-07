@@ -5,7 +5,7 @@ import AttachmentIcon from './icons/IconAttachment.vue'
 </script>
 
 <template>
-  <div class="card" draggable="true">
+  <li class="card" draggable="true">
     <div class="card-img"></div>
     <ul class="card-tags card-tags--compressed">
       <li><span>Priority</span></li>
@@ -34,7 +34,7 @@ import AttachmentIcon from './icons/IconAttachment.vue'
         </span>
       </div>
     </div>
-  </div>
+  </li>
 </template>
 
 <style scoped>
@@ -43,7 +43,6 @@ import AttachmentIcon from './icons/IconAttachment.vue'
   flex-direction: column;
   gap: 10px;
   padding: 20px;
-  width: 362px;
   background-color: var(--clr-bg-soft);
   border-radius: var(--br-base);
 }
