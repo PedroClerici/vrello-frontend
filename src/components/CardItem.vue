@@ -4,7 +4,14 @@ import NoteIcon from './icons/IconNote.vue'
 import AttachmentIcon from './icons/IconAttachment.vue'
 import type { Card } from '../types/card'
 
-const { title, description, image, tags } = defineProps<Card>()
+const {
+  title,
+  description,
+  image,
+  tags,
+  notes,
+  attachments
+} = defineProps<Card>()
 </script>
 
 <template>
@@ -12,7 +19,10 @@ const { title, description, image, tags } = defineProps<Card>()
     <div v-show="image" class="card-img">
       <img src="../assets/donut.jpeg" />
     </div>
-    <ul v-show="tags" class="card-tags card-tags--compressed">
+    <ul
+      v-show="tags"
+      class="card-tags card-tags--compressed"
+    >
       <li
         v-for="(tag, index) in tags"
         :key="index"
@@ -30,12 +40,12 @@ const { title, description, image, tags } = defineProps<Card>()
         <EditIcon />
       </button>
       <div class="card-info">
-        <span>
-          23
+        <span v-show="notes">
+          {{ notes }}
           <NoteIcon />
         </span>
-        <span>
-          98
+        <span v-show="attachments">
+          {{ attachments }}
           <AttachmentIcon />
         </span>
       </div>

@@ -1,12 +1,11 @@
+import { Tag } from './tag'
+
 export type Card = {
   image?: string
   tags?: Tag[]
   title: string
   description?: string
+  attachments?: number
+  notes?: number
   id: number
-}
-
-type Tag = {
-  name: string
-  color: 'red' | 'green' | 'blue' | 'purple' | 'yellow'
 }

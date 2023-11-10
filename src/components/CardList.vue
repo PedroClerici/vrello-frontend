@@ -1,47 +1,48 @@
 <script setup lang="ts">
+import draggable from 'vuedraggable'
 import CardItem from './CardItem.vue'
 import EllipsisIcon from './icons/IconEllipsis.vue'
-import { ref } from 'vue'
 import type { Card } from '../types/card.d.ts'
+import type { List } from '../types/list.d.ts'
 
-const list = ref<Card[]>([
-  {
-    image: 'https://example.com/imageurl',
-    tags: [
-      { name: 'Desing Team', color: 'purple' },
-      { name: 'Priority', color: 'red' }
-    ],
-    title: 'Types of paper in catalog printing',
-    description:
-      'Branding is no longing about visual appeal (or cherry in the pie example, as given in my aearlier article)',
-    id: 0
-  },
-  {
-    tags: [{ name: 'Help', color: 'green' }],
-    title: 'Old fashioned recipe for preventing allergies and chemical sensitivities',
-    id: 1
-  }
-])
+const { list } = defineProps<{
+  list: List
+}>()
 </script>
 
 <template>
-  <ul class="list">
-    <div class="list-heading">
-      <h2>List</h2>
-      <div class="list-options"><EllipsisIcon /></div>
-    </div>
-    <CardItem
-      v-for="card in list"
-      :key="card.id"
-      :image="card.image"
-      :tags="card.tags"
-      :title="card.title"
-      :description="card.description"
-    />
-    <div class="list-footer">
-      <h3>+ Add new card</h3>
-    </div>
-  </ul>
+  <draggable
+    v-if="list"
+    :list="list.cards"
+    group="list"
+    tag="ul"
+    class="list"
+    item-key="id"
+    ghost-class="ghost"
+  >
+    <template #header>
+      <div class="list-heading">
+        <h2>{{ list.title }}</h2>
+        <div class="list-options"><EllipsisIcon /></div>
+      </div>
+    </template>
+    <template #item="{ element: card }: { element: Card }">
+      <CardItem
+        :id="card.id"
+        :image="card.image"
+        :tags="card.tags"
+        :title="card.title"
+        :description="card.description"
+        :attachments="card.attachments"
+        :notes="card.notes"
+      />
+    </template>
+    <template #footer>
+      <div class="list-footer">
+        <h3>+ Add new card</h3>
+      </div>
+    </template>
+  </draggable>
 </template>
 
 <style scoped>
@@ -79,5 +80,9 @@ const list = ref<Card[]>([
 }
 .list-footer h3 {
   color: var(--clr-text);
+}
+
+.ghost {
+  opacity: 0.5;
 }
 </style>
