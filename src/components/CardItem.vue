@@ -2,22 +2,28 @@
 import EditIcon from './icons/IconEdit.vue'
 import NoteIcon from './icons/IconNote.vue'
 import AttachmentIcon from './icons/IconAttachment.vue'
+import type { Card } from '../types/card'
+
+const { title, description, image, tags } = defineProps<Card>()
 </script>
 
 <template>
   <li class="card" draggable="true">
-    <div class="card-img"></div>
-    <ul class="card-tags card-tags--compressed">
-      <li><span>Priority</span></li>
-      <li><span>Design Team</span></li>
-      <li><span>One more step</span></li>
+    <div v-show="image" class="card-img">
+      <img src="../assets/donut.jpeg" />
+    </div>
+    <ul v-show="tags" class="card-tags card-tags--compressed">
+      <li
+        v-for="(tag, index) in tags"
+        :key="index"
+        :style="{ background: `var(--clr-${tag.color})` }"
+      >
+        <span>{{ tag.name }}</span>
+      </li>
     </ul>
     <div class="card-text">
-      <h3>Types of paper in catalog printing</h3>
-      <p>
-        Branding is no longing about visual appeal (or cherry in the pie example, as given in my
-        earlier article)
-      </p>
+      <h3>{{ title }}</h3>
+      <p v-show="description">{{ description }}</p>
     </div>
     <div class="card-footer">
       <button>
@@ -50,7 +56,12 @@ import AttachmentIcon from './icons/IconAttachment.vue'
 .card-img {
   width: 100%;
   height: 170px;
-  background-color: var(--clr-bg-mute);
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: var(--br-base);
 }
 .card-text {
@@ -68,7 +79,6 @@ import AttachmentIcon from './icons/IconAttachment.vue'
 
 .card-tags li {
   display: flex; /* For some reason fix weird height properties? */
-  background: #891be8;
   border-radius: 4px;
   padding: 0 0.5rem;
   cursor: pointer;
@@ -85,9 +95,11 @@ import AttachmentIcon from './icons/IconAttachment.vue'
   height: 8px;
   border-radius: var(--br-base);
 }
+
 .card-tags--compressed span {
   display: none;
 }
+
 .card-footer {
   display: flex;
 }

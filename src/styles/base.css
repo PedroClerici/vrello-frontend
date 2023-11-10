@@ -8,6 +8,14 @@
   list-style: none;
 }
 
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;

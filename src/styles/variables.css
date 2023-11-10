@@ -23,6 +23,12 @@
   --clr-highlight-light: #213547;
   --clr-highlight-dark: #42b883;
 
+  --clr-red: #ff3838;
+  --clr-green: #42b883;
+  --clr-blue: #4339f2;
+  --clr-purple: #891be8;
+  --clr-yellow: #f8bd1c;
+
   --fs-large: 1.625rem;
   --fs-base: 1rem;
   --fs-small: 0.8125rem;
