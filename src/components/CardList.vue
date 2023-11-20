@@ -1,13 +1,26 @@
 <script setup lang="ts">
 import draggable from 'vuedraggable'
+import axios from 'axios'
 import CardItem from './CardItem.vue'
 import EllipsisIcon from './icons/IconEllipsis.vue'
 import type { Card } from '../types/card.d.ts'
 import type { List } from '../types/list.d.ts'
+import { watch } from 'vue'
 
 const { list } = defineProps<{
   list: List
 }>()
+
+watch(list, () => {
+  axios
+    .put(`http://localhost:3000/lists/${list.id}`, list)
+    .then((res) => {
+      console.log('List updated: ', res.data)
+    })
+    .catch((err) => {
+      console.log('Error updating the list: ', err)
+    })
+})
 </script>
 
 <template>
@@ -81,8 +94,18 @@ const { list } = defineProps<{
 .list-footer h3 {
   color: var(--clr-text);
 }
-
 .ghost {
-  opacity: 0.5;
+  position: relative;
+}
+.ghost::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--clr-bg);
+  border-radius: var(--br-base);
+  border: dashed 1px var(--clr-text-200);
 }
 </style>

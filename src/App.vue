@@ -7,7 +7,7 @@ import type { Ref } from 'vue'
 
 const lists: Ref<List[] | null> = ref(null)
 
-function getList() {
+function getLists() {
   axios
     .get('http://localhost:3000/lists')
     .then((res) => {
@@ -19,7 +19,7 @@ function getList() {
 }
 
 onMounted(() => {
-  getList()
+  getLists()
 })
 </script>
 
