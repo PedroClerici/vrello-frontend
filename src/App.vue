@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import NavBar from './components/NavBar.vue'
+import BoardMenu from './components/BoardMenu.vue'
 import CardList from './components/CardList.vue'
 import type { List } from './types/list'
 import type { Ref } from 'vue'
@@ -27,12 +28,16 @@ onMounted(() => {
 <template>
   <NavBar />
   <div class="wrapper">
+    <BoardMenu />
     <main>
       <CardList
         v-for="list in lists"
         :key="list.id"
         :list="list"
       />
+      <div class="new-list">
+        <h3>+ Add new list</h3>
+      </div>
     </main>
   </div>
 </template>
@@ -52,5 +57,21 @@ main {
   flex: 1;
   display: flex;
   gap: 10px;
+}
+
+.new-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  min-width: 362px;
+  padding: 12px 20px;
+  border-radius: var(--br-base);
+  border: dashed 1px var(--clr-text-200);
+  cursor: pointer;
+}
+
+.new-list h3 {
+  color: var(--clr-text);
 }
 </style>
