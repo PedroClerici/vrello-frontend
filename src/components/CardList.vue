@@ -64,6 +64,7 @@ watch(list, () => {
   flex-direction: column;
   gap: 10px;
   width: 362px;
+  max-height: 100%;
 }
 
 .list-heading {
@@ -86,7 +87,7 @@ watch(list, () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 160px;
+  min-height: 160px;
   border-radius: var(--br-base);
   border: dashed 1px var(--clr-text-200);
   cursor: pointer;

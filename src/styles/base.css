@@ -23,3 +23,8 @@ video {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+body {
+  background-color: var(--clr-bg);
+  height: 100vh;
+}

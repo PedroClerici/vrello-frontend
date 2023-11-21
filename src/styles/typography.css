@@ -25,3 +25,7 @@ p {
   font-size: var(--fs-small);
   color: var(--clr-text-400);
 }
+
+input {
+  all: unset;
+}

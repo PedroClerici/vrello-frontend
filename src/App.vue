@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
+import NavBar from './components/NavBar.vue'
 import CardList from './components/CardList.vue'
 import type { List } from './types/list'
 import type { Ref } from 'vue'
@@ -24,23 +25,31 @@ onMounted(() => {
 </script>
 
 <template>
-  <CardList
-    v-for="list in lists"
-    :key="list.id"
-    :list="list"
-  />
+  <NavBar />
+  <div class="wrapper">
+    <main>
+      <CardList
+        v-for="list in lists"
+        :key="list.id"
+        :list="list"
+      />
+    </main>
+  </div>
 </template>
 
 <style>
 body {
-  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--clr-bg);
+  flex-direction: column;
 }
 
-#app {
+.wrapper {
+  margin-inline: auto;
+  max-width: calc(100vw - var(--pg-padding) * 2);
+}
+
+main {
+  flex: 1;
   display: flex;
   gap: 10px;
 }
